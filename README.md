@@ -18,12 +18,12 @@ Professional online CV and project showcase for junior technology opportunities.
 
 ## Selected projects
 
-- [Cybersecurity Portfolio](https://github.com/Ricofitnesstokyo/cybersecurity-portfolio)
-- [Burger Code](https://github.com/Ricofitnesstokyo/Burger-Code)
-- [OhMyFood](https://github.com/Ricofitnesstokyo/OhMyFood)
-- [La Chouette Agence](https://github.com/Ricofitnesstokyo/La-Chouette-Agence)
-- [Snake](https://github.com/Ricofitnesstokyo/Snake)
-- [Reservia](https://github.com/Ricofitnesstokyo/Reservia)
+- [Cybersecurity Portfolio](https://github.com/RicoITSec/cybersecurity-portfolio)
+- [Burger Code](https://github.com/RicoITSec/Burger-Code)
+- [OhMyFood](https://github.com/RicoITSec/OhMyFood)
+- [La Chouette Agence](https://github.com/RicoITSec/La-Chouette-Agence)
+- [Snake](https://github.com/RicoITSec/Snake)
+- [Reservia](https://github.com/RicoITSec/Reservia)
 
 ## Stack
 
