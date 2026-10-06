@@ -23,14 +23,115 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Generate portfolio PDF
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          pages = [
+            [
+              "CYBERSECURITY PORTFOLIO",
+              "Junior IAM / Identity Security Analyst | Cybersecurity Analyst",
+              "",
+              "PROFESSIONAL PROFILE",
+              "Entry-level cybersecurity professional with hands-on portfolio work across identity and access",
+              "management, security operations, incident response, Linux, SQL, Python and network analysis.",
+              "Google Cybersecurity Professional Certificate completed; Microsoft Cybersecurity Analyst",
+              "Professional Certificate in progress.",
+              "",
+              "CORE CAPABILITIES",
+              "Security Operations: alert triage, phishing analysis, IOC analysis, incident response, threat intelligence.",
+              "IAM & Identity Security: Entra ID, RBAC, MFA, SSO, Conditional Access, JML, least privilege.",
+              "Technical: Linux, Bash, Windows, TCP/IP, Wireshark, tcpdump, VirusTotal, SQL/MariaDB, Python, Git.",
+              "",
+              "SELECTED PROJECTS",
+              "01. Microsoft Entra ID Migration & Identity Strategy",
+              "02. Access Control Incident Investigation",
+              "03. Enterprise Security Strategy - Soops",
+              "04. Network Segmentation Plan",
+              "05. Phishing Incident Response & Escalation",
+              "06. Malware & Threat Intelligence Analysis",
+              "07. Security Automation & Investigation"
+            ],
+            [
+              "HANDS-ON TECHNICAL EVIDENCE",
+              "",
+              "Linux & Bash - permissions, users/groups, ownership, file and directory administration.",
+              "SQL / MariaDB - SELECT, filters, LIKE, date/numeric conditions, BETWEEN, investigation queries.",
+              "Network Analysis - Wireshark, tcpdump, TCP/IP reasoning and PCAP exercises.",
+              "Python - file parsing and automation-oriented investigation exercises.",
+              "Identity Security - Entra ID, authentication, RBAC, MFA, Conditional Access and SSO.",
+              "",
+              "CERTIFICATIONS & TRAINING",
+              "Google Cybersecurity Professional Certificate - Completed September 2026",
+              "Microsoft Cybersecurity Analyst Professional Certificate - In progress",
+              "Google AI training - Completed August 2026",
+              "",
+              "LANGUAGES",
+              "French - Native | English - Fluent | Japanese - Intermediate | Italian - Basic",
+              "",
+              "RECRUITMENT OBJECTIVE",
+              "Junior Cybersecurity Analyst | SOC Analyst L1 | Junior IAM / Identity Security Analyst",
+              "",
+              "Online portfolio: https://ricofitnesstokyo.github.io/cybersecurity-portfolio/",
+              "GitHub: https://github.com/Ricofitnesstokyo"
+            ]
+          ]
+
+          def esc(s):
+              return s.replace("\\","\\\\").replace("(","\\(").replace(")","\\)")
+
+          headings={"PROFESSIONAL PROFILE","CORE CAPABILITIES","SELECTED PROJECTS",
+                    "HANDS-ON TECHNICAL EVIDENCE","CERTIFICATIONS & TRAINING",
+                    "LANGUAGES","RECRUITMENT OBJECTIVE"}
+
+          objs=[
+              "<< /Type /Catalog /Pages 2 0 R >>",
+              "<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>",
+              "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"
+          ]
+
+          for p, lines in enumerate(pages):
+              content_obj=5+p*2
+              objs.append(f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents {content_obj} 0 R >>")
+              c=["BT","/F1 10 Tf","50 790 Td"]
+              for i,line in enumerate(lines):
+                  if i==0:
+                      c += ["/F1 20 Tf", f"({esc(line)}) Tj", "/F1 10 Tf"]
+                  elif line in headings:
+                      c += ["0 -22 Td","/F1 14 Tf",f"({esc(line)}) Tj","/F1 10 Tf"]
+                  elif line=="":
+                      c += ["0 -10 Td"]
+                  else:
+                      c += ["0 -14 Td",f"({esc(line)}) Tj"]
+              c.append("ET")
+              stream="\n".join(c)
+              objs.append(f"<< /Length {len(stream)} >>\nstream\n{stream}\nendstream")
+
+          pdf="%PDF-1.4\n"
+          offsets=[0]
+          for i,obj in enumerate(objs,1):
+              offsets.append(len(pdf))
+              pdf += f"{i} 0 obj\n{obj}\nendobj\n"
+          xref=len(pdf)
+          pdf += f"xref\n0 {len(objs)+1}\n0000000000 65535 f \n"
+          for off in offsets[1:]:
+              pdf += f"{off:010d} 00000 n \n"
+          pdf += f"trailer\n<< /Size {len(objs)+1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n"
+          with open("portfolio.pdf","wb") as f:
+              f.write(pdf.encode("ascii"))
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "."
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
