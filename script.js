@@ -214,6 +214,81 @@ Object.assign(TRANSLATIONS, {
   'A web-development background adds practical context around applications, data flows, debugging and secure-by-design thinking. I am targeting teams where I can contribute, learn quickly and grow through real operational work.': {fr:'Mon expérience en développement web apporte un contexte pratique sur les applications, les flux de données, le débogage et l’approche secure-by-design. Je vise des équipes où je peux contribuer, apprendre rapidement et progresser grâce à un travail opérationnel réel.', ja:'Web開発の経験により、アプリケーション、データフロー、デバッグ、セキュア・バイ・デザインの考え方を実践的に理解しています。貢献しながら素早く学び、実運用を通じて成長できるチームを志望しています。'}
 });
 
+
+// Professional experience and certificate content shared with the current CV.
+Object.assign(TRANSLATIONS, {
+  "Experience": {
+    "fr": "Expérience",
+    "ja": "職務経歴"
+  },
+  "PROFESSIONAL EXPERIENCE": {
+    "fr": "EXPÉRIENCE PROFESSIONNELLE",
+    "ja": "職務経歴"
+  },
+  "Professional experience": {
+    "fr": "Expérience professionnelle",
+    "ja": "職務経歴"
+  },
+  "Voice Annotator · Voice Translator · French–English Translator": {
+    "fr": "Annotateur vocal · Traducteur vocal · Traducteur français–anglais",
+    "ja": "音声アノテーター・音声翻訳者・仏英翻訳者"
+  },
+  "2023–Present": {
+    "fr": "Depuis 2023",
+    "ja": "2023年～現在"
+  },
+  "Appen / CrowdGen · OutlierAI · Aurora Studio · TELUS · Centific": {
+    "fr": "Appen / CrowdGen · OutlierAI · Aurora Studio · TELUS · Centific",
+    "ja": "Appen / CrowdGen · OutlierAI · Aurora Studio · TELUS · Centific"
+  },
+  "Voice data annotation.": {
+    "fr": "Annotation de données vocales.",
+    "ja": "音声データのアノテーション。"
+  },
+  "Voice content translation.": {
+    "fr": "Traduction de contenus vocaux.",
+    "ja": "音声コンテンツの翻訳。"
+  },
+  "French–English translation.": {
+    "fr": "Traduction français–anglais.",
+    "ja": "フランス語・英語間の翻訳。"
+  },
+  "Professional work since 2023 in voice annotation, voice translation and French–English translation.": {
+    "fr": "Activité professionnelle depuis 2023 en annotation vocale, traduction de contenus vocaux et traduction français–anglais.",
+    "ja": "2023年から音声アノテーション、音声コンテンツの翻訳、フランス語・英語間の翻訳に従事。"
+  },
+  "Google AI course certificates": {
+    "fr": "Certificats de cours Google AI",
+    "ja": "Google AIコース修了証"
+  },
+  "AI for App Building · AI for Data Analysis · AI for Content Creation · AI for Writing and Communicating · AI for Brainstorming and Planning": {
+    "fr": "IA pour la création d’applications · IA pour l’analyse de données · IA pour la création de contenu · IA pour la rédaction et la communication · IA pour le brainstorming et la planification",
+    "ja": "アプリ構築のためのAI・データ分析のためのAI・コンテンツ制作のためのAI・文章作成とコミュニケーションのためのAI・アイデア発想と計画のためのAI"
+  },
+  "Google / Coursera · Completed 2026": {
+    "fr": "Google / Coursera · Terminé en 2026",
+    "ja": "Google / Coursera · 2026年修了"
+  },
+  "Completed — 2026": {
+    "fr": "Terminé — 2026",
+    "ja": "修了 — 2026年"
+  },
+  "LinkedIn ↗": {
+    "fr": "LinkedIn ↗",
+    "ja": "LinkedIn ↗"
+  },
+  "Google Cybersecurity Professional Certificate graduate targeting junior cybersecurity, SOC L1 and IAM roles. Practical training covers Linux access control, SQL security queries, incident response and identity security. Voice annotation and French–English translation experience since 2023 complements a web-development foundation and ongoing Microsoft Cybersecurity Analyst training.": {
+    "fr": "Titulaire du Google Cybersecurity Professional Certificate, je vise des postes junior en cybersécurité, SOC L1 et IAM. Ma formation pratique couvre le contrôle d’accès Linux, les requêtes SQL de sécurité, la réponse aux incidents et la sécurité des identités. Mon expérience en annotation vocale et traduction français–anglais depuis 2023 complète mes bases en développement web et ma formation Microsoft Cybersecurity Analyst en cours.",
+    "ja": "Google Cybersecurity Professional Certificateを修了し、ジュニアのサイバーセキュリティ、SOC L1、IAM職を目指しています。実践学習ではLinuxのアクセス制御、セキュリティ向けSQLクエリ、インシデント対応、IDセキュリティに取り組んでいます。2023年からの音声アノテーションと仏英翻訳の職務経験を持ち、Web開発の基礎と、現在受講中のMicrosoft Cybersecurity Analystの学習も活かしています。"
+  },
+  "Practical case studies in IAM, identity security and SOC L1, supported by web-development projects. Google Cybersecurity Professional Certificate completed; Microsoft Cybersecurity Analyst training in progress. Professional experience since 2023 in voice annotation and French–English translation.": {
+    "fr": "Études de cas pratiques en IAM, sécurité des identités et SOC L1, complétées par des projets de développement web. Google Cybersecurity Professional Certificate terminé ; formation Microsoft Cybersecurity Analyst en cours. Expérience professionnelle depuis 2023 en annotation vocale et traduction français–anglais.",
+    "ja": "IAM、IDセキュリティ、SOC L1の実践ケーススタディとWeb開発プロジェクトを掲載しています。Google Cybersecurity Professional Certificateを修了し、Microsoft Cybersecurity Analystを受講中です。2023年から音声アノテーションと仏英翻訳に従事しています。"
+  }
+});
+
+Object.assign(TRANSLATIONS, {'Completed — August 2026': {fr:'Terminé — Août 2026', ja:'修了 — 2026年8月'}});
+
 const PAGE_META = {
   en: {
     title:'Richard | Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1',
@@ -253,7 +328,7 @@ function translateTextNodes(language) {
   nodes.forEach(node => {
     if (!originalText.has(node)) originalText.set(node, node.textContent);
     const original = originalText.get(node);
-    const trimmed = original.trim();
+    const trimmed = original.trim().replace(/\s+/g, ' ');
     const leading = original.match(/^\s*/)?.[0] || '';
     const trailing = original.match(/\s*$/)?.[0] || '';
     const translated = language === 'en' ? trimmed : (TRANSLATIONS[trimmed]?.[language] || trimmed);
@@ -359,3 +434,4 @@ window.addEventListener('storage', (event) => {
     applyLanguage(event.newValue);
   }
 });
+

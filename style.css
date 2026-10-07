@@ -125,7 +125,7 @@ strong { color: var(--text); }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 26px;
+  gap: 18px;
   flex: 1;
 }
 
@@ -880,3 +880,9 @@ html[data-theme="dark"] .section-muted {
     color: #000000 !important;
   }
 }
+
+/* Long multilingual career headings stay within the content column. */
+#experience .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); overflow-wrap: anywhere; }
+#experience h3 { font-size: 1.05rem; color: var(--text); }
+#experience li + li { margin-top: .5rem; }
+.nav a { white-space: nowrap; }
