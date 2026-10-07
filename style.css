@@ -20,19 +20,19 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #08111f;
-  --bg-soft: #0d1729;
-  --panel: #111a2f;
-  --panel-2: #182540;
+  --bg: #242424;
+  --bg-soft: #292929;
+  --panel: #2e2e2e;
+  --panel-2: #353535;
   --text: #f4f7fb;
-  --muted: #aab6ce;
-  --line: rgba(170,182,206,.20);
+  --muted: #c2c2c2;
+  --line: rgba(194,194,194,.24);
   --accent: #66d9ef;
   --accent-2: #7dffca;
-  --header-bg: rgba(8,17,31,.90);
-  --glass: rgba(17,26,47,.72);
-  --glass-strong: rgba(17,26,47,.88);
-  --tag-text: #dce7ff;
+  --header-bg: rgba(36,36,36,.95);
+  --glass: rgba(46,46,46,.72);
+  --glass-strong: rgba(46,46,46,.88);
+  --tag-text: #ededed;
   --shadow: 0 24px 70px rgba(0,0,0,.30);
 }
 
@@ -886,3 +886,6 @@ html[data-theme="dark"] .section-muted {
 #experience h3 { font-size: 1.05rem; color: var(--text); }
 #experience li + li { margin-top: .5rem; }
 .nav a { white-space: nowrap; }
+
+/* Neutral charcoal canvas for the dark theme. */
+@media screen { html[data-theme="dark"] body { background: var(--bg); } }

@@ -1,4 +1,4 @@
-const THEME_KEY = 'rico-theme';
+const THEME_KEY = 'rico-theme-gray-v1';
 const LANGUAGE_KEY = 'rico-lang';
 
 const TRANSLATIONS = {
@@ -371,7 +371,7 @@ function applyLanguage(language) {
       'Richard - professional profile';
   }
 
-  applyTheme(document.documentElement.dataset.theme || 'light');
+  applyTheme(document.documentElement.dataset.theme || 'dark');
 }
 
 function applyTheme(theme) {
@@ -397,7 +397,7 @@ function applyTheme(theme) {
   }
 
   const meta = document.getElementById('theme-color-meta');
-  if (meta) meta.setAttribute('content', isDark ? '#08111f' : '#f5f5dc');
+  if (meta) meta.setAttribute('content', isDark ? '#242424' : '#f5f5dc');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
