@@ -161,6 +161,22 @@ const COMPLETE_TRANSLATIONS = {
   'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI': {fr:'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI', ja:'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI'}
 };
 Object.assign(TRANSLATIONS, COMPLETE_TRANSLATIONS);
+Object.assign(TRANSLATIONS,{
+'Junior Cybersecurity Analyst · IAM · SOC L1':{fr:'Analyste cybersécurité junior · IAM · SOC L1',ja:'ジュニア サイバーセキュリティアナリスト · IAM · SOC L1'},
+'Security-focused junior analyst with a':{fr:'Analyste junior orienté sécurité avec la certification',ja:'セキュリティ分野を志向するジュニアアナリストとして'},
+'Google Cybersecurity':{fr:'Google Cybersecurity',ja:'Google Cybersecurity'},
+'certification and':{fr:'et une formation',ja:'認定を取得し、'},
+'Microsoft Cybersecurity Analyst':{fr:'Microsoft Cybersecurity Analyst',ja:'Microsoft Cybersecurity Analyst'},
+'training in progress. Hands-on portfolio work covers':{fr:'en cours. Le portfolio pratique couvre',ja:'を現在学習中です。実践ポートフォリオでは'},
+'IAM / Microsoft Entra ID':{fr:'IAM / Microsoft Entra ID',ja:'IAM / Microsoft Entra ID'},
+', incident response, access control, Linux, SQL and Python. Web-development experience adds practical application and troubleshooting context.':{fr:', la réponse aux incidents, le contrôle d’accès, Linux, SQL et Python. L’expérience en développement web apporte aussi un contexte concret sur les applications et le dépannage.',ja:'、インシデント対応、アクセス制御、Linux、SQL、Pythonに取り組んでいます。Web開発経験はアプリケーション理解とトラブルシューティングにも活かしています。'},
+'View Cybersecurity Portfolio ↗':{fr:'Voir le portfolio cybersécurité ↗',ja:'サイバーセキュリティ・ポートフォリオを見る ↗'},
+'Hands-on focus':{fr:'Compétences pratiques',ja:'実践分野'},
+'Entra ID · Incident Response · Linux · SQL · Python':{fr:'Entra ID · Réponse aux incidents · Linux · SQL · Python',ja:'Entra ID · インシデント対応 · Linux · SQL · Python'},
+'Portfolio evidence':{fr:'Preuves du portfolio',ja:'ポートフォリオ実績'},
+'7 security case studies · Web development projects':{fr:'7 études de cas sécurité · Projets de développement web',ja:'セキュリティ ケーススタディ7件 · Web開発プロジェクト'},
+'Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1':{fr:'Analyste cybersécurité junior · IAM / Sécurité des identités · SOC L1',ja:'ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · SOC L1'}
+});
 
 const RECRUITER_CV_TRANSLATIONS = {
   'Richard | Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1': {fr:'Richard | Analyste cybersécurité junior · IAM / Sécurité des identités · SOC L1', ja:'Richard | ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · SOC L1'},
