@@ -162,6 +162,20 @@ const COMPLETE_TRANSLATIONS = {
 };
 Object.assign(TRANSLATIONS, COMPLETE_TRANSLATIONS);
 
+const RECRUITER_CV_TRANSLATIONS = {
+  'Junior Cybersecurity, IAM & Identity Security.': {fr:'Cybersécurité junior, IAM & sécurité des identités.', ja:'ジュニア サイバーセキュリティ・IAM・IDセキュリティ'},
+  'Evidence-driven junior cybersecurity profile focused on': {fr:'Profil junior en cybersécurité fondé sur des preuves concrètes, axé sur', ja:'実践的な成果を重視するジュニア サイバーセキュリティ人材として'},
+  'IAM / identity security.': {fr:'IAM / sécurité des identités.', ja:'IAM / IDセキュリティに注力しています。'},
+  'Google Cybersecurity certified and currently progressing through Microsoft Cybersecurity Analyst training, with hands-on work across incident response, access control, Linux, SQL, Python and network analysis. A web-development foundation adds application-level troubleshooting context.': {fr:'Certifié Google Cybersecurity et actuellement en formation Microsoft Cybersecurity Analyst, avec des travaux pratiques en réponse aux incidents, contrôle d’accès, Linux, SQL, Python et analyse réseau. Une base en développement web apporte également un contexte concret de dépannage au niveau applicatif.', ja:'Google Cybersecurity認定を取得し、現在Microsoft Cybersecurity Analystを学習中です。インシデント対応、アクセス制御、Linux、SQL、Python、ネットワーク分析の実践経験があり、Web開発の基礎もアプリケーションレベルのトラブルシューティングに活かしています。'},
+  'View Security Portfolio ↗': {fr:'Voir le portfolio sécurité ↗', ja:'セキュリティ・ポートフォリオを見る ↗'},
+  'GitHub Profile ↗': {fr:'Profil GitHub ↗', ja:'GitHubプロフィール ↗'},
+  'Technical evidence': {fr:'Preuves techniques', ja:'技術的な実績'},
+  'Google Cybersecurity · Microsoft in progress': {fr:'Google Cybersecurity · Microsoft en cours', ja:'Google Cybersecurity · Microsoft 学習中'},
+  'Junior Cybersecurity Analyst · IAM / Identity Security': {fr:'Analyste cybersécurité junior · IAM / Sécurité des identités', ja:'ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ'},
+  'Security-first, evidence-driven, with a practical development foundation.': {fr:'La sécurité d’abord, des preuves concrètes et une base pratique en développement.', ja:'セキュリティを軸に、実践的な成果と開発基盤を備えています。'}
+};
+Object.assign(TRANSLATIONS, RECRUITER_CV_TRANSLATIONS);
+
 const ACCESSIBILITY_I18N = {
   en: {home:'Home', nav:'Primary navigation', language:'Language', highlights:'Professional highlights', profile:'Professional profile'},
   fr: {home:'Accueil', nav:'Navigation principale', language:'Langue', highlights:'Points forts professionnels', profile:'Profil professionnel'},
