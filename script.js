@@ -168,18 +168,33 @@ const ACCESSIBILITY_I18N = {
   ja: {home:'ホーム', nav:'メインナビゲーション', language:'言語', highlights:'プロフェッショナル概要', profile:'プロフィール'}
 };
 
+
+Object.assign(TRANSLATIONS, {
+  'Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1': {fr:'Analyste cybersécurité junior · IAM / Sécurité des identités · SOC L1', ja:'ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · SOC L1'},
+  'Google Cybersecurity certified and currently progressing through the Microsoft Cybersecurity Analyst Professional Certificate. Hands-on work includes Microsoft Entra ID and access control, phishing and malware investigation, network segmentation, Linux permissions, SQL security queries and Python automation. Web-development experience adds practical application and troubleshooting context.': {fr:'Certifié Google Cybersecurity et actuellement en cours de Microsoft Cybersecurity Analyst Professional Certificate. Les travaux pratiques couvrent Microsoft Entra ID et le contrôle d’accès, l’investigation phishing et malware, la segmentation réseau, les permissions Linux, les requêtes SQL de sécurité et l’automatisation Python. L’expérience en développement web apporte un contexte concret sur les applications et le dépannage.', ja:'Google Cybersecurity認定を取得し、現在Microsoft Cybersecurity Analyst Professional Certificateを学習中です。実践内容はMicrosoft Entra IDとアクセス制御、フィッシング／マルウェア調査、ネットワーク分離、Linux権限、セキュリティ向けSQLクエリ、Python自動化を含みます。Web開発経験は、アプリケーション理解とトラブルシューティングにも活かしています。'},
+  'Credential': {fr:'Certification', ja:'資格'},
+  'Google Cybersecurity · Completed': {fr:'Google Cybersecurity · Terminé', ja:'Google Cybersecurity · 修了'},
+  'Security focus': {fr:'Axes sécurité', ja:'セキュリティ領域'},
+  'IAM · SOC L1 · Incident Response': {fr:'IAM · SOC L1 · Réponse aux incidents', ja:'IAM · SOC L1 · インシデント対応'},
+  'Technical foundation': {fr:'Fondations techniques', ja:'技術基盤'},
+  'Open to junior cybersecurity / IAM / SOC L1 roles': {fr:'Ouvert aux postes junior en cybersécurité / IAM / SOC L1', ja:'ジュニア サイバーセキュリティ / IAM / SOC L1職を希望'},
+  'Security-first, evidence-driven and ready to grow in operations.': {fr:'La sécurité d’abord, des preuves concrètes et une volonté de progresser en opérations.', ja:'セキュリティを軸に、実践の証拠を積み上げ、運用で成長する準備があります。'},
+  'My focus is junior cybersecurity, SOC L1 and identity-security work. I use structured investigation, clear documentation and hands-on labs to turn security concepts into evidence: access-control analysis, phishing triage, threat intelligence, Linux permissions, SQL investigation and Python automation.': {fr:'Mon objectif concerne les postes junior en cybersécurité, SOC L1 et sécurité des identités. J’utilise une investigation structurée, une documentation claire et des labs pratiques pour transformer les concepts de sécurité en preuves concrètes : analyse des contrôles d’accès, triage phishing, threat intelligence, permissions Linux, investigations SQL et automatisation Python.', ja:'ジュニア向けサイバーセキュリティ、SOC L1、IDセキュリティ職を目指しています。体系的な調査、明確なドキュメント、実践ラボを通じて、アクセス制御分析、フィッシングトリアージ、脅威インテリジェンス、Linux権限、SQL調査、Python自動化を成果として示しています。'},
+  'A web-development background adds practical context around applications, data flows, debugging and secure-by-design thinking. I am targeting teams where I can contribute, learn quickly and grow through real operational work.': {fr:'Mon expérience en développement web apporte un contexte pratique sur les applications, les flux de données, le débogage et l’approche secure-by-design. Je vise des équipes où je peux contribuer, apprendre rapidement et progresser grâce à un travail opérationnel réel.', ja:'Web開発の経験により、アプリケーション、データフロー、デバッグ、セキュア・バイ・デザインの考え方を実践的に理解しています。貢献しながら素早く学び、実運用を通じて成長できるチームを志望しています。'}
+});
+
 const PAGE_META = {
   en: {
-    title:'Richard | Junior Cybersecurity & IAM Analyst · Web Development',
-    description:'Junior cybersecurity and IAM profile with hands-on security projects, Google Cybersecurity certification, Microsoft Cybersecurity Analyst training and a practical web-development foundation.'
+    title:'Richard | Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1',
+    description:'Junior Cybersecurity Analyst focused on IAM, identity security and SOC L1, with Google Cybersecurity certification and hands-on Entra ID, incident response, Linux, SQL and Python projects.'
   },
   fr: {
-    title:'Richard | Analyste cybersécurité junior & IAM · Développement web',
-    description:'Profil junior en cybersécurité et IAM avec projets pratiques, certification Google Cybersecurity, formation Microsoft Cybersecurity Analyst et bases solides en développement web.'
+    title:'Richard | Analyste cybersécurité junior · IAM / Sécurité des identités · SOC L1',
+    description:'Analyste cybersécurité junior orienté IAM, sécurité des identités et SOC L1, avec certification Google Cybersecurity et projets pratiques Entra ID, réponse aux incidents, Linux, SQL et Python.'
   },
   ja: {
-    title:'Richard | ジュニア サイバーセキュリティ・IAMアナリスト · Web開発',
-    description:'サイバーセキュリティとIAMを中心に、実践プロジェクト、Google Cybersecurity認定、Microsoft Cybersecurity Analyst学習、Web開発の基礎を持つジュニアプロフィール。'
+    title:'Richard | ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · SOC L1',
+    description:'IAM、IDセキュリティ、SOC L1を中心に、Google Cybersecurity認定とEntra ID、インシデント対応、Linux、SQL、Pythonの実践プロジェクトを持つジュニア サイバーセキュリティプロフィール。'
   }
 };
 
