@@ -1,4 +1,181 @@
 const THEME_KEY = 'rico-theme';
+const LANGUAGE_KEY = 'rico-lang';
+
+const TRANSLATIONS = {
+  'Skip to content': {fr:'Aller au contenu', ja:'コンテンツへ移動'},
+  'Profile': {fr:'Profil', ja:'プロフィール'},
+  'Skills': {fr:'Compétences', ja:'スキル'},
+  'Certifications': {fr:'Certifications', ja:'資格'},
+  'Projects': {fr:'Projets', ja:'プロジェクト'},
+  'Education': {fr:'Formation', ja:'学習・研修'},
+  'Dark': {fr:'Sombre', ja:'ダーク'},
+  'Light': {fr:'Clair', ja:'ライト'},
+  'GitHub ↗': {fr:'GitHub ↗', ja:'GitHub ↗'},
+  'OPEN TO JUNIOR CYBERSECURITY · IAM · SOC L1 OPPORTUNITIES · FRANCE · REMOTE · INTERNATIONAL': {fr:'OUVERT AUX OPPORTUNITÉS JUNIOR EN CYBERSÉCURITÉ · IAM · SOC L1 · FRANCE · TÉLÉTRAVAIL · INTERNATIONAL', ja:'ジュニア向けサイバーセキュリティ・IAM・SOC L1職を希望 · フランス · リモート · 海外'},
+  'Junior cybersecurity & identity security.': {fr:'Cybersécurité junior & sécurité des identités.', ja:'ジュニア サイバーセキュリティ & IDセキュリティ'},
+  'Security-focused junior professional targeting': {fr:'Profil junior orienté sécurité visant des postes en', ja:'セキュリティ分野のジュニア人材として'},
+  'cybersecurity': {fr:'cybersécurité', ja:'サイバーセキュリティ'},
+  'SOC L1': {fr:'SOC L1', ja:'SOC L1'},
+  'and': {fr:'et', ja:'および'},
+  'IAM / identity security': {fr:'IAM / sécurité des identités', ja:'IAM / IDセキュリティ'},
+  'roles. Google Cybersecurity certified and currently progressing through Microsoft Cybersecurity Analyst training, with hands-on projects in incident response, access control, Linux, SQL and Python. A web-development background adds practical application and troubleshooting context.': {fr:'Google Cybersecurity certifié et actuellement en formation Microsoft Cybersecurity Analyst, avec des projets pratiques en réponse aux incidents, contrôle d’accès, Linux, SQL et Python. Mon expérience en développement web apporte un contexte concret sur les applications et le dépannage.', ja:'の職種を目指しています。Google Cybersecurity認定を取得し、現在Microsoft Cybersecurity Analystを学習中です。インシデント対応、アクセス制御、Linux、SQL、Pythonの実践プロジェクトに取り組んでおり、Web開発の経験もアプリケーション理解とトラブルシューティングに活かしています。'},
+  'View selected projects': {fr:'Voir les projets sélectionnés', ja:'主なプロジェクトを見る'},
+  'Cybersecurity portfolio ↗': {fr:'Portfolio cybersécurité ↗', ja:'サイバーセキュリティ・ポートフォリオ ↗'},
+  'Print / Save PDF ↓': {fr:'Imprimer / Enregistrer en PDF ↓', ja:'印刷 / PDF保存 ↓'},
+  'Portfolio PDF': {fr:'Portfolio PDF', ja:'ポートフォリオPDF'},
+  'Target roles': {fr:'Postes visés', ja:'希望職種'},
+  'Security toolkit': {fr:'Outils sécurité', ja:'セキュリティツール'},
+  'Linux · SQL · Python · Network Analysis': {fr:'Linux · SQL · Python · Analyse réseau', ja:'Linux · SQL · Python · ネットワーク分析'},
+  'Development': {fr:'Développement', ja:'開発'},
+  'Open to junior cybersecurity / IAM roles': {fr:'Ouvert aux postes junior cybersécurité / IAM', ja:'ジュニア サイバーセキュリティ / IAM職を希望'},
+  'Junior Cybersecurity Analyst · IAM / Identity Security · Web Development Background': {fr:'Analyste cybersécurité junior · IAM / Sécurité des identités · Expérience en développement web', ja:'ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · Web開発経験'},
+  'Security Portfolio': {fr:'Portfolio sécurité', ja:'セキュリティ・ポートフォリオ'},
+  'PROFILE': {fr:'PROFIL', ja:'プロフィール'},
+  'Security-first, with a practical development foundation.': {fr:'La sécurité d’abord, avec une base pratique en développement.', ja:'セキュリティを軸に、実践的な開発基盤を備えています。'},
+  'My primary focus is junior cybersecurity, SOC and identity-security work. My development background supports that goal by giving me practical context around applications, debugging, data flows and the way technical systems are built.': {fr:'Mon objectif principal concerne les postes junior en cybersécurité, SOC et sécurité des identités. Mon expérience en développement soutient cet objectif en m’apportant une compréhension pratique des applications, du débogage, des flux de données et de la construction des systèmes techniques.', ja:'主な目標は、ジュニア向けのサイバーセキュリティ、SOC、IDセキュリティ職です。開発経験により、アプリケーション、デバッグ、データフロー、システム構築の実践的な理解を得ています。'},
+  'I work comfortably in structured learning and project environments, with experience across Linux, networking fundamentals, access control, SQL, Python-based automation, responsive interfaces and full-stack web exercises. I am especially interested in teams where I can grow through real operational work, documentation and continuous learning.': {fr:'Je travaille efficacement dans des environnements d’apprentissage et de projet structurés, avec une expérience en Linux, fondamentaux réseau, contrôle d’accès, SQL, automatisation Python, interfaces responsives et exercices web full-stack. Je recherche particulièrement des équipes où je peux progresser grâce à des missions opérationnelles, de la documentation et un apprentissage continu.', ja:'体系的な学習環境やプロジェクトで、Linux、ネットワーク基礎、アクセス制御、SQL、Python自動化、レスポンシブUI、フルスタックWeb演習に取り組んできました。実務、ドキュメント作成、継続学習を通じて成長できるチームに特に関心があります。'},
+  'CORE SKILLS': {fr:'COMPÉTENCES CLÉS', ja:'主要スキル'},
+  'Core capabilities for junior security and IAM roles.': {fr:'Compétences principales pour les postes junior en sécurité et IAM.', ja:'ジュニア セキュリティ / IAM職に向けた主要スキル。'},
+  'Security Operations': {fr:'Opérations de sécurité', ja:'セキュリティ運用'},
+  'Incident response · Alert triage · Phishing analysis · IOC analysis · Threat intelligence · SIEM fundamentals · MITRE ATT&CK concepts': {fr:'Réponse aux incidents · Triage des alertes · Analyse phishing · Analyse IOC · Threat intelligence · Fondamentaux SIEM · Concepts MITRE ATT&CK', ja:'インシデント対応 · アラートトリアージ · フィッシング分析 · IOC分析 · 脅威インテリジェンス · SIEM基礎 · MITRE ATT&CK'},
+  'IAM & Identity Security': {fr:'IAM & Sécurité des identités', ja:'IAM & IDセキュリティ'},
+  'Microsoft Entra ID · RBAC · MFA · SSO · Conditional Access · Least privilege · JML lifecycle · Access reviews · Zero Trust': {fr:'Microsoft Entra ID · RBAC · MFA · SSO · Accès conditionnel · Moindre privilège · Cycle JML · Revues d’accès · Zero Trust', ja:'Microsoft Entra ID · RBAC · MFA · SSO · 条件付きアクセス · 最小権限 · JMLライフサイクル · アクセスレビュー · Zero Trust'},
+  'Systems & Investigation': {fr:'Systèmes & Investigation', ja:'システム & 調査'},
+  'Web Development': {fr:'Développement web', ja:'Web開発'},
+  'HTML5 · CSS3 · JavaScript · ReactJS · Bootstrap · jQuery · PHP · MySQL · WordPress · Responsive design': {fr:'HTML5 · CSS3 · JavaScript · ReactJS · Bootstrap · jQuery · PHP · MySQL · WordPress · Design responsive', ja:'HTML5 · CSS3 · JavaScript · ReactJS · Bootstrap · jQuery · PHP · MySQL · WordPress · レスポンシブデザイン'},
+  'UX, AI & Productivity': {fr:'UX, IA & Productivité', ja:'UX・AI・生産性'},
+  'Adobe XD · UX/UI fundamentals · Design Thinking · Generative AI · AI-assisted research · Prototyping': {fr:'Adobe XD · Fondamentaux UX/UI · Design Thinking · IA générative · Recherche assistée par IA · Prototypage', ja:'Adobe XD · UX/UI基礎 · Design Thinking · 生成AI · AI支援リサーチ · プロトタイピング'},
+  'Professional Strengths': {fr:'Atouts professionnels', ja:'強み'},
+  'Critical thinking · Problem solving · Technical documentation · Project management · Teamwork · Communication · Adaptability': {fr:'Esprit critique · Résolution de problèmes · Documentation technique · Gestion de projet · Travail d’équipe · Communication · Adaptabilité', ja:'批判的思考 · 問題解決 · 技術文書 · プロジェクト管理 · チームワーク · コミュニケーション · 適応力'},
+  'CERTIFICATIONS': {fr:'CERTIFICATIONS', ja:'資格'},
+  'Focused on employable cybersecurity and AI skills.': {fr:'Des compétences cybersécurité et IA orientées employabilité.', ja:'就職につながるサイバーセキュリティとAIスキルに注力。'},
+  'Completed': {fr:'Terminé', ja:'修了'},
+  'Google / Coursera · September 2026': {fr:'Google / Coursera · Septembre 2026', ja:'Google / Coursera · 2026年9月'},
+  'In progress': {fr:'En cours', ja:'進行中'},
+  'Microsoft / Coursera · Current focus': {fr:'Microsoft / Coursera · Priorité actuelle', ja:'Microsoft / Coursera · 現在の重点'},
+  'App building · Data analysis · Content · Writing & communication · Planning · August 2026': {fr:'Création d’applications · Analyse de données · Contenu · Rédaction & communication · Planification · Août 2026', ja:'アプリ構築 · データ分析 · コンテンツ · ライティング＆コミュニケーション · 計画 · 2026年8月'},
+  'SELECTED WORK': {fr:'PROJETS SÉLECTIONNÉS', ja:'主な実績'},
+  'Projects that show practical ability.': {fr:'Des projets qui démontrent des compétences pratiques.', ja:'実践力を示すプロジェクト。'},
+  'View all repositories ↗': {fr:'Voir tous les dépôts ↗', ja:'すべてのリポジトリを見る ↗'},
+  'CYBERSECURITY PORTFOLIO': {fr:'PORTFOLIO CYBERSÉCURITÉ', ja:'サイバーセキュリティ・ポートフォリオ'},
+  'Identity Security, Incident Response & Security Operations': {fr:'Sécurité des identités, réponse aux incidents & opérations de sécurité', ja:'IDセキュリティ・インシデント対応・セキュリティ運用'},
+  'A dedicated portfolio covering Microsoft Entra ID migration strategy, access-control investigation, phishing response, malware and threat-intelligence analysis, network segmentation and security automation.': {fr:'Un portfolio dédié couvrant la stratégie de migration Microsoft Entra ID, les investigations de contrôle d’accès, la réponse au phishing, l’analyse malware et threat intelligence, la segmentation réseau et l’automatisation sécurité.', ja:'Microsoft Entra ID移行戦略、アクセス制御調査、フィッシング対応、マルウェア／脅威インテリジェンス分析、ネットワーク分離、セキュリティ自動化をまとめた専用ポートフォリオです。'},
+  'Live portfolio ↗': {fr:'Portfolio en ligne ↗', ja:'ライブ・ポートフォリオ ↗'},
+  'Repository ↗': {fr:'Dépôt ↗', ja:'リポジトリ ↗'},
+  'FULL-STACK': {fr:'FULL-STACK', ja:'フルスタック'},
+  'Dynamic restaurant application with PHP, PDO/MySQL, CRUD administration, prepared statements and image uploads.': {fr:'Application de restaurant dynamique avec PHP, PDO/MySQL, administration CRUD, requêtes préparées et upload d’images.', ja:'PHP、PDO/MySQL、CRUD管理、プリペアドステートメント、画像アップロードを備えた動的レストランアプリ。'},
+  'View project ↗': {fr:'Voir le projet ↗', ja:'プロジェクトを見る ↗'},
+  'FRONT-END': {fr:'FRONT-END', ja:'フロントエンド'},
+  'Responsive multi-page restaurant interface built with semantic HTML, Sass, animations and interactive visual states.': {fr:'Interface restaurant multi-pages responsive réalisée en HTML sémantique, Sass, animations et états visuels interactifs.', ja:'セマンティックHTML、Sass、アニメーション、インタラクティブなUI状態で構築したレスポンシブな複数ページのレストランUI。'},
+  'SEO · ACCESSIBILITY': {fr:'SEO · ACCESSIBILITÉ', ja:'SEO · アクセシビリティ'},
+  'Website optimization project focused on SEO structure, accessibility-oriented markup, responsiveness and front-end cleanup.': {fr:'Projet d’optimisation de site axé sur la structure SEO, le balisage accessible, le responsive et le nettoyage front-end.', ja:'SEO構造、アクセシビリティを意識したマークアップ、レスポンシブ対応、フロントエンド改善に注力した最適化プロジェクト。'},
+  'JAVASCRIPT': {fr:'JAVASCRIPT', ja:'JAVASCRIPT'},
+  'Canvas game with keyboard controls, collision detection, scoring, randomized apple generation and restart logic.': {fr:'Jeu Canvas avec commandes clavier, détection des collisions, score, génération aléatoire de pommes et logique de redémarrage.', ja:'キーボード操作、衝突判定、スコア、ランダムなリンゴ生成、リスタート処理を実装したCanvasゲーム。'},
+  'RESPONSIVE UI': {fr:'INTERFACE RESPONSIVE', ja:'レスポンシブUI'},
+  'Responsive accommodation interface with navigation, filters, search patterns, cards and multi-section page layout.': {fr:'Interface d’hébergement responsive avec navigation, filtres, recherche, cartes et mise en page multi-sections.', ja:'ナビゲーション、フィルター、検索UI、カード、複数セクション構成を備えたレスポンシブ宿泊施設UI。'},
+  'ONGOING': {fr:'EN COURS', ja:'進行中'},
+  'Continuous learning': {fr:'Apprentissage continu', ja:'継続学習'},
+  'Current development is focused on Microsoft cybersecurity, identity security, SOC workflows and strengthening the technical portfolio.': {fr:'Le développement actuel se concentre sur la cybersécurité Microsoft, la sécurité des identités, les workflows SOC et le renforcement du portfolio technique.', ja:'現在はMicrosoftセキュリティ、IDセキュリティ、SOCワークフロー、技術ポートフォリオの強化に注力しています。'},
+  'Follow on GitHub ↗': {fr:'Suivre sur GitHub ↗', ja:'GitHubで見る ↗'},
+  'EDUCATION & TRAINING': {fr:'FORMATION & APPRENTISSAGE', ja:'学習・研修'},
+  'Web, information systems and continuous technical learning.': {fr:'Web, systèmes d’information et apprentissage technique continu.', ja:'Web、情報システム、継続的な技術学習。'},
+  'Cybersecurity & AI specialization': {fr:'Spécialisation cybersécurité & IA', ja:'サイバーセキュリティ & AI 専門学習'},
+  'Web Development & UX': {fr:'Développement web & UX', ja:'Web開発 & UX'},
+  'Web development · Adobe XD / UX Design · Design Thinking · Digital Marketing': {fr:'Développement web · Adobe XD / UX Design · Design Thinking · Marketing digital', ja:'Web開発 · Adobe XD / UX Design · Design Thinking · デジタルマーケティング'},
+  'Information Systems & Management': {fr:'Systèmes d’information & Management', ja:'情報システム & マネジメント'},
+  'Information systems · Team management · Marketing · Japanese language studies': {fr:'Systèmes d’information · Management d’équipe · Marketing · Études de japonais', ja:'情報システム · チームマネジメント · マーケティング · 日本語学習'},
+  'LANGUAGES': {fr:'LANGUES', ja:'言語'},
+  'International profile': {fr:'Profil international', ja:'国際的なプロフィール'},
+  'French': {fr:'Français', ja:'フランス語'},
+  'Native': {fr:'Langue maternelle', ja:'母語'},
+  'English': {fr:'Anglais', ja:'英語'},
+  'Fluent': {fr:'Courant', ja:'流暢'},
+  'Japanese': {fr:'Japonais', ja:'日本語'},
+  'Intermediate': {fr:'Intermédiaire', ja:'中級'},
+  'Italian': {fr:'Italien', ja:'イタリア語'},
+  'Basic': {fr:'Notions', ja:'基礎'},
+  "LET'S CONNECT": {fr:'CONTACT', ja:'コンタクト'},
+  'Looking for a junior cybersecurity or IAM profile with a broader technical foundation?': {fr:'Vous recherchez un profil junior en cybersécurité ou IAM avec une base technique plus large ?', ja:'幅広い技術基盤を持つジュニア サイバーセキュリティ / IAM人材をお探しですか？'},
+  'Explore the repositories and security portfolio for practical examples of my work.': {fr:'Consultez les dépôts et le portfolio sécurité pour découvrir des exemples pratiques de mon travail.', ja:'実践的な成果は、リポジトリとセキュリティ・ポートフォリオをご覧ください。'},
+  'GitHub profile ↗': {fr:'Profil GitHub ↗', ja:'GitHubプロフィール ↗'},
+  'Security portfolio ↗': {fr:'Portfolio sécurité ↗', ja:'セキュリティ・ポートフォリオ ↗'},
+  '© 2026 Richard · Cybersecurity · IAM · Web Development': {fr:'© 2026 Richard · Cybersécurité · IAM · Développement web', ja:'© 2026 Richard · サイバーセキュリティ · IAM · Web開発'},
+  'Back to top ↑': {fr:'Retour en haut ↑', ja:'ページ上部へ ↑'}
+};
+
+const PAGE_META = {
+  en: {
+    title:'Richard | Junior Cybersecurity & IAM Analyst · Web Development',
+    description:'Junior cybersecurity and IAM profile with hands-on security projects, Google Cybersecurity certification, Microsoft Cybersecurity Analyst training and a practical web-development foundation.'
+  },
+  fr: {
+    title:'Richard | Analyste cybersécurité junior & IAM · Développement web',
+    description:'Profil junior en cybersécurité et IAM avec projets pratiques, certification Google Cybersecurity, formation Microsoft Cybersecurity Analyst et bases solides en développement web.'
+  },
+  ja: {
+    title:'Richard | ジュニア サイバーセキュリティ・IAMアナリスト · Web開発',
+    description:'サイバーセキュリティとIAMを中心に、実践プロジェクト、Google Cybersecurity認定、Microsoft Cybersecurity Analyst学習、Web開発の基礎を持つジュニアプロフィール。'
+  }
+};
+
+let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || 'en';
+const originalText = new WeakMap();
+
+function t(key) {
+  if (currentLanguage === 'en') return key;
+  return TRANSLATIONS[key]?.[currentLanguage] || key;
+}
+
+function translateTextNodes(language) {
+  currentLanguage = language;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || ['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach(node => {
+    if (!originalText.has(node)) originalText.set(node, node.textContent);
+    const original = originalText.get(node);
+    const trimmed = original.trim();
+    const leading = original.match(/^\s*/)?.[0] || '';
+    const trailing = original.match(/\s*$/)?.[0] || '';
+    const translated = language === 'en' ? trimmed : (TRANSLATIONS[trimmed]?.[language] || trimmed);
+    node.textContent = leading + translated + trailing;
+  });
+}
+
+function applyLanguage(language) {
+  if (!['en','fr','ja'].includes(language)) language = 'en';
+  currentLanguage = language;
+  document.documentElement.lang = language;
+  translateTextNodes(language);
+
+  document.querySelectorAll('.lang-button').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.lang === language));
+  });
+
+  const meta = PAGE_META[language];
+  if (meta) {
+    document.title = meta.title;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute('content', meta.description);
+  }
+
+  const photo = document.querySelector('.profile-photo');
+  if (photo) {
+    photo.alt = language === 'fr' ? 'Richard - photo professionnelle' :
+      language === 'ja' ? 'Richard - プロフィール写真' :
+      'Richard - professional profile';
+  }
+
+  applyTheme(document.documentElement.dataset.theme || 'light');
+}
 
 function applyTheme(theme) {
   const isDark = theme === 'dark';
@@ -7,12 +184,19 @@ function applyTheme(theme) {
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {
     toggle.setAttribute('aria-pressed', String(isDark));
-    toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+    const lightText = t('Light');
+    const darkText = t('Dark');
+    toggle.setAttribute('aria-label',
+      currentLanguage === 'fr'
+        ? (isDark ? 'Passer au thème clair' : 'Passer au thème sombre')
+        : currentLanguage === 'ja'
+          ? (isDark ? 'ライトテーマに切り替え' : 'ダークテーマに切り替え')
+          : (isDark ? 'Switch to light theme' : 'Switch to dark theme'));
 
     const icon = toggle.querySelector('.theme-icon');
     const label = toggle.querySelector('.theme-label');
     if (icon) icon.textContent = isDark ? '☀' : '☾';
-    if (label) label.textContent = isDark ? 'Light' : 'Dark';
+    if (label) label.textContent = isDark ? lightText : darkText;
   }
 
   const meta = document.getElementById('theme-color-meta');
@@ -20,8 +204,15 @@ function applyTheme(theme) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const initialTheme = document.documentElement.dataset.theme || 'light';
-  applyTheme(initialTheme);
+  applyLanguage(currentLanguage);
+
+  document.querySelectorAll('.lang-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const language = button.dataset.lang;
+      localStorage.setItem(LANGUAGE_KEY, language);
+      applyLanguage(language);
+    });
+  });
 
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
@@ -41,5 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('storage', (event) => {
   if (event.key === THEME_KEY && (event.newValue === 'light' || event.newValue === 'dark')) {
     applyTheme(event.newValue);
+  }
+  if (event.key === LANGUAGE_KEY && ['en','fr','ja'].includes(event.newValue)) {
+    applyLanguage(event.newValue);
   }
 });
