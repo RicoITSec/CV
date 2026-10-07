@@ -163,6 +163,7 @@ const COMPLETE_TRANSLATIONS = {
 Object.assign(TRANSLATIONS, COMPLETE_TRANSLATIONS);
 
 const RECRUITER_CV_TRANSLATIONS = {
+  'Richard | Junior Cybersecurity Analyst · IAM / Identity Security · SOC L1': {fr:'Richard | Analyste cybersécurité junior · IAM / Sécurité des identités · SOC L1', ja:'Richard | ジュニア サイバーセキュリティアナリスト · IAM / IDセキュリティ · SOC L1'},
   'Junior Cybersecurity, IAM & Identity Security.': {fr:'Cybersécurité junior, IAM & sécurité des identités.', ja:'ジュニア サイバーセキュリティ・IAM・IDセキュリティ'},
   'Evidence-driven junior cybersecurity profile focused on': {fr:'Profil junior en cybersécurité fondé sur des preuves concrètes, axé sur', ja:'実践的な成果を重視するジュニア サイバーセキュリティ人材として'},
   'IAM / identity security.': {fr:'IAM / sécurité des identités.', ja:'IAM / IDセキュリティに注力しています。'},
