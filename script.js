@@ -103,6 +103,71 @@ const TRANSLATIONS = {
   'Back to top ↑': {fr:'Retour en haut ↑', ja:'ページ上部へ ↑'}
 };
 
+const COMPLETE_TRANSLATIONS = {
+  'Richard | Junior Cybersecurity & IAM Analyst · Web Development': {fr:'Richard | Analyste cybersécurité junior & IAM · Développement web', ja:'Richard | ジュニア サイバーセキュリティ・IAMアナリスト · Web開発'},
+  'R': {fr:'R', ja:'R'},
+  'Richard': {fr:'Richard', ja:'Richard'},
+  '.': {fr:'.', ja:'.'},
+  'FR': {fr:'FR', ja:'FR'},
+  'EN': {fr:'EN', ja:'EN'},
+  'JP': {fr:'JP', ja:'JP'},
+  '☾': {fr:'☾', ja:'☾'},
+  '☀': {fr:'☀', ja:'☀'},
+  ',': {fr:',', ja:'、'},
+  'SOC L1 · IAM · Cybersecurity': {fr:'SOC L1 · IAM · Cybersécurité', ja:'SOC L1 · IAM · サイバーセキュリティ'},
+  'JavaScript · React · PHP · MySQL': {fr:'JavaScript · React · PHP · MySQL', ja:'JavaScript · React · PHP · MySQL'},
+  'GitHub': {fr:'GitHub', ja:'GitHub'},
+  '01': {fr:'01', ja:'01'},
+  '02': {fr:'02', ja:'02'},
+  '03': {fr:'03', ja:'03'},
+  '04': {fr:'04', ja:'04'},
+  '05': {fr:'05', ja:'05'},
+  '06': {fr:'06', ja:'06'},
+  'Linux · Bash · Windows · TCP/IP · Wireshark · tcpdump · VirusTotal · SQL / MariaDB · Python · Git': {fr:'Linux · Bash · Windows · TCP/IP · Wireshark · tcpdump · VirusTotal · SQL / MariaDB · Python · Git', ja:'Linux · Bash · Windows · TCP/IP · Wireshark · tcpdump · VirusTotal · SQL / MariaDB · Python · Git'},
+  'Google Cybersecurity Professional Certificate': {fr:'Google Cybersecurity Professional Certificate', ja:'Google Cybersecurity Professional Certificate'},
+  'Microsoft Cybersecurity Analyst Professional Certificate': {fr:'Microsoft Cybersecurity Analyst Professional Certificate', ja:'Microsoft Cybersecurity Analyst Professional Certificate'},
+  'Google AI': {fr:'Google AI', ja:'Google AI'},
+  'IAM': {fr:'IAM', ja:'IAM'},
+  'Entra ID': {fr:'Entra ID', ja:'Entra ID'},
+  'Incident Response': {fr:'Réponse aux incidents', ja:'インシデント対応'},
+  'Linux': {fr:'Linux', ja:'Linux'},
+  'Python': {fr:'Python', ja:'Python'},
+  'SQL': {fr:'SQL', ja:'SQL'},
+  'Burger Code': {fr:'Burger Code', ja:'Burger Code'},
+  'PHP': {fr:'PHP', ja:'PHP'},
+  'MySQL': {fr:'MySQL', ja:'MySQL'},
+  'PDO': {fr:'PDO', ja:'PDO'},
+  'CRUD': {fr:'CRUD', ja:'CRUD'},
+  'OhMyFood': {fr:'OhMyFood', ja:'OhMyFood'},
+  'HTML5': {fr:'HTML5', ja:'HTML5'},
+  'CSS3': {fr:'CSS3', ja:'CSS3'},
+  'Sass': {fr:'Sass', ja:'Sass'},
+  'Responsive': {fr:'Responsive', ja:'レスポンシブ'},
+  'La Chouette Agence': {fr:'La Chouette Agence', ja:'La Chouette Agence'},
+  'SEO': {fr:'SEO', ja:'SEO'},
+  'Accessibility': {fr:'Accessibilité', ja:'アクセシビリティ'},
+  'Bootstrap': {fr:'Bootstrap', ja:'Bootstrap'},
+  'JavaScript': {fr:'JavaScript', ja:'JavaScript'},
+  'Snake': {fr:'Snake', ja:'Snake'},
+  'Canvas': {fr:'Canvas', ja:'Canvas'},
+  'Game logic': {fr:'Logique de jeu', ja:'ゲームロジック'},
+  'DOM events': {fr:'Événements DOM', ja:'DOMイベント'},
+  'Reservia': {fr:'Reservia', ja:'Reservia'},
+  'UI integration': {fr:'Intégration UI', ja:'UI実装'},
+  '+': {fr:'+', ja:'+'},
+  '2026': {fr:'2026', ja:'2026'},
+  '2021': {fr:'2021', ja:'2021'},
+  '2020': {fr:'2020', ja:'2020'},
+  'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI': {fr:'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI', ja:'Google Cybersecurity · Microsoft Cybersecurity Analyst · Google AI'}
+};
+Object.assign(TRANSLATIONS, COMPLETE_TRANSLATIONS);
+
+const ACCESSIBILITY_I18N = {
+  en: {home:'Home', nav:'Primary navigation', language:'Language', highlights:'Professional highlights', profile:'Professional profile'},
+  fr: {home:'Accueil', nav:'Navigation principale', language:'Langue', highlights:'Points forts professionnels', profile:'Profil professionnel'},
+  ja: {home:'ホーム', nav:'メインナビゲーション', language:'言語', highlights:'プロフェッショナル概要', profile:'プロフィール'}
+};
+
 const PAGE_META = {
   en: {
     title:'Richard | Junior Cybersecurity & IAM Analyst · Web Development',
@@ -118,7 +183,7 @@ const PAGE_META = {
   }
 };
 
-let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || 'en';
+let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || (navigator.language.toLowerCase().startsWith('fr') ? 'fr' : navigator.language.toLowerCase().startsWith('ja') ? 'ja' : 'en');
 const originalText = new WeakMap();
 
 function t(key) {
@@ -165,7 +230,18 @@ function applyLanguage(language) {
     document.title = meta.title;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute('content', meta.description);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogTitle) ogTitle.setAttribute('content', meta.title);
+    if (ogDescription) ogDescription.setAttribute('content', meta.description);
   }
+
+  const a11y = ACCESSIBILITY_I18N[language] || ACCESSIBILITY_I18N.en;
+  document.querySelector('.brand')?.setAttribute('aria-label', a11y.home);
+  document.querySelector('.nav')?.setAttribute('aria-label', a11y.nav);
+  document.querySelector('.language-switcher')?.setAttribute('aria-label', a11y.language);
+  document.querySelector('.proof-row')?.setAttribute('aria-label', a11y.highlights);
+  document.querySelector('.profile-card')?.setAttribute('aria-label', a11y.profile);
 
   const photo = document.querySelector('.profile-photo');
   if (photo) {
