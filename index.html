@@ -13,7 +13,14 @@
   <meta property="og:description" content="Security-first junior profile focused on SOC, IAM and identity security, supported by practical web-development experience.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ricoitsec.github.io/CV/">
-  <meta name="theme-color" content="#0b1220">
+  <meta name="theme-color" content="#f5f5dc" id="theme-color-meta">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('rico-theme');
+      const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -57,7 +64,13 @@
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
       </nav>
-      <a class="button button-ghost" href="https://github.com/RicoITSec" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+          <span class="theme-label">Dark</span>
+        </button>
+        <a class="button button-ghost" href="https://github.com/RicoITSec" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
     </div>
   </header>
 
